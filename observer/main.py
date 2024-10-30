@@ -11,7 +11,7 @@ class Observer(ABC):
     Observer abstract base class.
     """
 
-    def __init__(self, name: str):
+    def __init__(self, name: str) -> None:
         """
         Constructor.
         :param name: Name of the observer
@@ -19,7 +19,7 @@ class Observer(ABC):
         self.name = name
 
     @abstractmethod
-    def Update(self, message: str):
+    def Update(self, message: str) -> None:
         """
         Abstract Update method interface.
 
@@ -34,7 +34,7 @@ class Subject(ABC):
     Subject abstract base class.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Constructor.
         """
@@ -71,7 +71,7 @@ class TemperatureSensor(Subject):
     Temperature sensor subject.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Constructor.
         """
@@ -79,7 +79,7 @@ class TemperatureSensor(Subject):
         self._temperature = 0
 
     @property
-    def temperature(self):
+    def temperature(self) -> Number:
         """
         Temperature property getter.
         :return: Temperature.
@@ -103,7 +103,7 @@ class MobileDisplay(Observer):
     Mobile display observer.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Constructor.
         """
@@ -123,7 +123,7 @@ class BackendMonitor(Observer):
     Backend monitor observer.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Constructor.
         """
