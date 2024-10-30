@@ -1,6 +1,7 @@
 """
 Main.
 """
+
 from abc import ABC, abstractmethod
 from numbers import Number
 
