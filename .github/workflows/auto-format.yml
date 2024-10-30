@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main  # You can adjust this to apply to other branches as needed
+  workflow_dispatch:
 
 jobs:
   format:
