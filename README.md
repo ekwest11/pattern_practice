@@ -38,7 +38,7 @@ pattern_practice/
    ```bash
    pip install -r requirements.txt
 
-### Running the examples
+### Running the Examples
 
 Each design pattern has its own directory with a main.py file. You can run the example for a pattern by executing the main.py file in that directory. For example:
 
