@@ -9,6 +9,7 @@ class Observer(ABC):
     """
     Observer abstract base class.
     """
+
     def __init__(self, name: str):
         """
         Constructor.
@@ -146,4 +147,3 @@ if __name__ == "__main__":
 
     temperatureSensor.temperature = 10
     temperatureSensor.temperature = 20
-
