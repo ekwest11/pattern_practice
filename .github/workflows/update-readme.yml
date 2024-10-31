@@ -39,12 +39,28 @@ jobs:
           awk '/## Repository Structure/{flag=1;print;print "```plaintext";system("cat repo_structure.txt");print "```";next} /```/{flag=0} !flag' README.md > updated_README.md
           mv updated_README.md README.md
 
-      - name: Commit and Push Changes
+      - name: Commit Changes to a New Branch
         env:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-          git config --local user.name "ekwest11"
-          git config --local user.email "ekwest11@gmail.com"
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b update-readme-structure
           git add README.md
           git commit -m "Auto-update README with latest directory structure" || echo "No changes to commit"
-          git push "https://$PAT_TOKEN@github.com/ekwest11/pattern_practice.git" HEAD:main
+          git push "https://$PAT_TOKEN@github.com/ekwest11/pattern_practice.git" update-readme-structure
+
+          - name: Create Pull Request
+            uses: actions/github-script@v6
+            with:
+              github-token: ${{ secrets.PAT_TOKEN }}
+              script: |
+                const { data: pullRequest } = await github.pulls.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  head: 'update-readme-structure',
+                  base: 'main',
+                  title: 'Auto-update README with latest directory structure',
+                  body: 'This PR was created automatically by a GitHub Action to update the README structure.',
+                });
+                console.log(`Pull request created: ${pullRequest.html_url}`);
