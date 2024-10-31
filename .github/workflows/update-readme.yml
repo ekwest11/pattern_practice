@@ -50,17 +50,17 @@ jobs:
           git commit -m "Auto-update README with latest directory structure" || echo "No changes to commit"
           git push "https://$PAT_TOKEN@github.com/ekwest11/pattern_practice.git" update-readme-structure
 
-          - name: Create Pull Request
-            uses: actions/github-script@v6
-            with:
-              github-token: ${{ secrets.PAT_TOKEN }}
-              script: |
-                const { data: pullRequest } = await github.pulls.create({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  head: 'update-readme-structure',
-                  base: 'main',
-                  title: 'Auto-update README with latest directory structure',
-                  body: 'This PR was created automatically by a GitHub Action to update the README structure.',
-                });
-                console.log(`Pull request created: ${pullRequest.html_url}`);
+      - name: Create Pull Request
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.PAT_TOKEN }}
+          script: |
+            const { data: pullRequest } = await github.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              head: 'update-readme-structure',
+              base: 'main',
+              title: 'Auto-update README with latest directory structure',
+              body: 'This PR was created automatically by a GitHub Action to update the README structure.',
+            });
+            console.log(`Pull request created: ${pullRequest.html_url}`);
