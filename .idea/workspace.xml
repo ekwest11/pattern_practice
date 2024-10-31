@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d23b5aca-341c-4277-b49d-003121a8e3b4" name="Changes" comment="Added docstrings and additional type hints.">
-      <change beforePath="$PROJECT_DIR$/observer/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/observer/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/auto-format.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/auto-format.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/singleton/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/singleton/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
