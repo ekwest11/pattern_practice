@@ -21,6 +21,7 @@ jobs:
       - name: Generate directory structure
         run: |
           # Generate the structure, save to a temp file
+          ls -al
           tree -I ".git|.github|__pycache__" pattern_practice/ > repo_structure.txt
           
           # Verify the output file exists and display its content for debugging
