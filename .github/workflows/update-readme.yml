@@ -48,7 +48,7 @@ jobs:
           git checkout -b update-readme-structure
           git add README.md
           git commit -m "Auto-update README with latest directory structure" || echo "No changes to commit"
-          git push "https://$PAT_TOKEN@github.com/ekwest11/pattern_practice.git" update-readme-structure
+          git push --force "https://$PAT_TOKEN@github.com/ekwest11/pattern_practice.git" update-readme-structure
 
       - name: Create Pull Request
         uses: actions/github-script@v6
