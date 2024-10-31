@@ -4,22 +4,6 @@ This repository contains implementations of popular design patterns in Python, o
 
 The project also includes a GitHub Actions workflow to ensure consistent code formatting using [Black](https://github.com/psf/black), a Python code formatter.
 
-## Repository Structure
-```plaintext
-.
-├── LICENSE
-├── README.md
-├── observer
-│   └── main.py
-├── requirements.txt
-├── singleton
-│   └── main.py
-└── strategy
-    └── main.py
-
-3 directories, 6 files
-```
-
 ### Getting Started:
    pip install -r requirements.txt
 
