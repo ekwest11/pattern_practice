@@ -19,6 +19,19 @@ The project also includes a GitHub Actions workflow to ensure consistent code fo
 
 3 directories, 6 files
 ```
+.
+├── LICENSE
+├── README.md
+├── observer
+│   └── main.py
+├── requirements.txt
+├── singleton
+│   └── main.py
+└── strategy
+    └── main.py
+
+3 directories, 6 files
+```
 
 ### Getting Started:
    pip install -r requirements.txt
