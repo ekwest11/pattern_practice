@@ -33,15 +33,16 @@ jobs:
             exit 1
           fi
 
+      - name: Update README
         run: |
-          # Use awk to replace the "Repository Structure" section cleanly
+          # Replace the "Repository Structure" section with new content and add a newline at the end
           awk '
             BEGIN { flag = 0 }
             /## Repository Structure/ { 
               flag = 1
               print "## Repository Structure\n```plaintext"
               system("cat /tmp/repo_structure.txt")
-              print "```"
+              print "```\n"  # Add newline after closing code block
               next 
             }
             flag && /```/ { flag = 0 }
