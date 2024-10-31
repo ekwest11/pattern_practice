@@ -36,20 +36,12 @@ jobs:
       - name: Update README
         run: |
           # Remove all existing "Repository Structure" sections and replace with the new one from /tmp/repo_structure.txt.
-          awk '
-            BEGIN { flag = 0 }
-            /^## Repository Structure/ { 
-              flag = 1
-              print "## Repository Structure\n```plaintext"
-              system("cat /tmp/repo_structure.txt")
-              print "```"
-              next 
-            }
-            flag && /^```/ { flag = 0; next }  # Stop skipping lines after the end of any code block
-            !flag  # Only print lines when we are not within the sections to be replaced
-          ' README.md > updated_README.md
-          
-          mv updated_README.md README.md
+          sed -i '/## Repository Structure/,/```/d' README.md
+          echo -e "## Repository Structure\n\`\`\`plaintext" > temp_README.md
+          cat /tmp/repo_structure.txt >> temp_README.md
+          echo -e "\`\`\`\n" >> temp_README.md
+          cat README.md >> temp_README.md
+          mv temp_README.md README.md
           rm /tmp/repo_structure.txt  # Clean up the temporary file
 
 
