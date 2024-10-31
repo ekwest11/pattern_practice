@@ -38,6 +38,7 @@ jobs:
           # Update the README file with the new structure.
           awk '/## Repository Structure/{flag=1;print;print "```plaintext";system("cat repo_structure.txt");print "```";next} /```/{flag=0} !flag' README.md > updated_README.md
           mv updated_README.md README.md
+          rm repo_structure.txt
 
       - name: Commit Changes to a New Branch
         env:
