@@ -5,22 +5,20 @@ This repository contains implementations of popular design patterns in Python, o
 The project also includes a GitHub Actions workflow to ensure consistent code formatting using [Black](https://github.com/psf/black), a Python code formatter.
 
 ## Repository Structure
+```plaintext
+.
+├── LICENSE
+├── README.md
+├── observer
+│   └── main.py
+├── requirements.txt
+├── singleton
+│   └── main.py
+└── strategy
+    └── main.py
 
-test
-
-### Directory Details
-
-- **`.github/workflows/auto-format.yml`**: This GitHub Actions workflow automatically applies Black formatting to the code whenever changes are pushed to the repository.
-- **`observer/`**: Contains the implementation of the **Observer** design pattern. Run `main.py` to execute the example.
-- **`singleton/`**: Contains the implementation of the **Singleton** design pattern. Run `main.py` to execute the example.
-- **`requirements.txt`**: Lists the Python dependencies for this project. Ensure all dependencies are installed before running the examples.
-
-## Getting Started
-
-### Prerequisites
-
-1. **Install Python**: Ensure that Python 3.6+ is installed on your machine.
-2. **Install Dependencies**: Run the following command to install dependencies listed in `requirements.txt`:
+3 directories, 6 files
+```
    ```bash
    pip install -r requirements.txt
 
