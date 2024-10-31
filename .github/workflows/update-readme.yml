@@ -33,12 +33,22 @@ jobs:
             exit 1
           fi
 
-      - name: Update README
         run: |
-          # Replace the "Repository Structure" section in README.md with new content from /tmp/repo_structure.txt.
-          awk '/## Repository Structure/{flag=1;print "## Repository Structure\n```plaintext";system("cat /tmp/repo_structure.txt");print "```";next} /```/{flag=0} !flag' README.md > updated_README.md
+          # Use awk to replace the "Repository Structure" section cleanly
+          awk '
+            BEGIN { flag = 0 }
+            /## Repository Structure/ { 
+              flag = 1
+              print "## Repository Structure\n```plaintext"
+              system("cat /tmp/repo_structure.txt")
+              print "```"
+              next 
+            }
+            flag && /```/ { flag = 0 }
+            !flag
+          ' README.md > updated_README.md
           mv updated_README.md README.md
-          rm /tmp/repo_structure.txt  # Remove the temp file after use
+          rm /tmp/repo_structure.txt  # Clean up the temporary file
 
       - name: Commit Changes to a New Branch
         env:
