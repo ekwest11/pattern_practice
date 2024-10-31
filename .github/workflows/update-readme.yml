@@ -43,6 +43,8 @@ jobs:
         env:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
+          git config --local user.name "ekwest11"
+          git config --local user.email "ekwest11@gmail.com"
           git add README.md
           git commit -m "Auto-update README with latest directory structure" || echo "No changes to commit"
           git push "https://$PAT_TOKEN@github.com/ekwest11/pattern_practice.git" HEAD:main
