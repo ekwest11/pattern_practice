@@ -22,6 +22,15 @@ jobs:
         run: |
           # Generate the structure, save to a temp file
           tree -I ".git|.github|__pycache__" pattern_practice/ > repo_structure.txt
+          
+          # Verify the output file exists and display its content for debugging
+          if [ -s repo_structure.txt ]; then
+            echo "Directory structure generated successfully:"
+            cat repo_structure.txt
+          else
+            echo "Failed to generate directory structure" >&2
+            exit 1
+          fi
 
       - name: Update README
         run: |
