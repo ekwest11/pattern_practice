@@ -35,8 +35,8 @@ jobs:
 
       - name: Update README
         run: |
-          # Update the README file with the new structure using the temp file.
-          awk '/## Repository Structure/{flag=1;print;print "```plaintext";system("cat /tmp/repo_structure.txt");print "```";next} /```/{flag=0} !flag' README.md > updated_README.md
+          # Overwrite the "Repository Structure" section in README.md with new content from /tmp/repo_structure.txt.
+          awk '/## Repository Structure/{flag=1;print;print "```plaintext";system("cat /tmp/repo_structure.txt");print "```";flag=0} !flag' README.md > updated_README.md
           mv updated_README.md README.md
           rm /tmp/repo_structure.txt  # Remove the temp file after use
 
