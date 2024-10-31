@@ -22,7 +22,7 @@ jobs:
         run: |
           # Generate the structure, save to a temp file
           ls -al
-          tree -I ".git|.github|__pycache__" pattern_practice/ > repo_structure.txt
+          tree -I ".git|.github|__pycache__|.idea" > repo_structure.txt || true
           
           # Verify the output file exists and display its content for debugging
           if [ -s repo_structure.txt ]; then
@@ -35,7 +35,7 @@ jobs:
 
       - name: Update README
         run: |
-          # Update the README file with the new structure
+          # Update the README file with the new structure.
           awk '/## Repository Structure/{flag=1;print;print "```plaintext";system("cat repo_structure.txt");print "```";next} /```/{flag=0} !flag' README.md > updated_README.md
           mv updated_README.md README.md
 
