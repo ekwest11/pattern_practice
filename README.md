@@ -1,3 +1,19 @@
+## Repository Structure
+```plaintext
+.
+├── LICENSE
+├── README.md
+├── observer
+│   └── main.py
+├── requirements.txt
+├── singleton
+│   └── main.py
+└── strategy
+    └── main.py
+
+3 directories, 6 files
+```
+
 # Design Patterns in Python
 
 This repository contains implementations of popular design patterns in Python, organized by pattern type. Each pattern is implemented in its own folder with a `main.py` file to demonstrate usage.
