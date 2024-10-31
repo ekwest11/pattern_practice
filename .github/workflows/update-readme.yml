@@ -20,14 +20,14 @@ jobs:
 
       - name: Generate directory structure
         run: |
-          # Generate the structure, save to a temp file
+          # Generate the structure, saving to a temp file in /tmp to avoid including it in the README structure
           ls -al
-          tree -I ".git|.github|__pycache__|.idea" > repo_structure.txt || true
-          
+          tree -I ".git|.github|__pycache__|.idea" > /tmp/repo_structure.txt || true
+
           # Verify the output file exists and display its content for debugging
-          if [ -s repo_structure.txt ]; then
+          if [ -s /tmp/repo_structure.txt ]; then
             echo "Directory structure generated successfully:"
-            cat repo_structure.txt
+            cat /tmp/repo_structure.txt
           else
             echo "Failed to generate directory structure" >&2
             exit 1
@@ -35,10 +35,10 @@ jobs:
 
       - name: Update README
         run: |
-          # Update the README file with the new structure.
-          awk '/## Repository Structure/{flag=1;print;print "```plaintext";system("cat repo_structure.txt");print "```";next} /```/{flag=0} !flag' README.md > updated_README.md
+          # Update the README file with the new structure using the temp file.
+          awk '/## Repository Structure/{flag=1;print;print "```plaintext";system("cat /tmp/repo_structure.txt");print "```";next} /```/{flag=0} !flag' README.md > updated_README.md
           mv updated_README.md README.md
-          rm repo_structure.txt
+          rm /tmp/repo_structure.txt  # Remove the temp file after use
 
       - name: Commit Changes to a New Branch
         env:
