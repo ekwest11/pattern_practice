@@ -19,7 +19,8 @@ The project also includes a GitHub Actions workflow to ensure consistent code fo
 
 3 directories, 6 files
 ```
-   ```bash
+
+### Getting Started:
    pip install -r requirements.txt
 
 ### Running the examples
