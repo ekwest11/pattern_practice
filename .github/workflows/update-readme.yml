@@ -16,7 +16,7 @@ jobs:
       - name: Generate Directory Structure
         run: |
           # Install tree if not already available
-          sudo apt-get update && sudo apt-get install -y tree || true
+          sudo apt-get install -y tree || true
           # Generate the structure, save to a temp file
           tree -I ".git|.github|__pycache__" pattern_practice/ > repo_structure.txt
 
